@@ -15,9 +15,14 @@ class WC_Bundle_Style_Coupons {
 	private $setting_key = 'wc_bundle_style_coupon';
 
 	public function __construct() {
+		add_action( 'plugins_loaded', array( $this, 'load_textdomain_files' ), 10, 0 );
 		add_action( 'woocommerce_coupon_options', array( $this, 'coupon_options' ), 10, 0 );
 		add_action( 'woocommerce_process_shop_coupon_meta', array( $this, 'process_shop_coupon_meta' ), 10, 2 );
 		add_filter( 'woocommerce_coupon_is_valid', array( $this, 'coupon_is_valid' ), 10, 2 );
+	}
+
+	public function load_textdomain_files() {
+		load_plugin_textdomain( 'wc_bundle_style_coupons', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
 	}
 
 	public function coupon_options() {
