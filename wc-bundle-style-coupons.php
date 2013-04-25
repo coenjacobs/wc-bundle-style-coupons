@@ -29,7 +29,7 @@ class WC_Bundle_Style_Coupons {
 		woocommerce_wp_checkbox( array(
 			'id'          => $this->setting_key,
 			'label'       => __( 'Bundle coupon', 'wc_bundle_style_coupons' ),
-			'description' => __( 'Only apply this coupon when all products that his coupon applies to are in cart.', 'wc_bundle_style_coupons' )
+			'description' => __( 'Only apply this coupon when all products that this coupon applies to are in the cart.', 'wc_bundle_style_coupons' )
 		) );
 	}
 
