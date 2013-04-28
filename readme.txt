@@ -4,7 +4,7 @@ Tags: woocommerce
 Donate link: http://coenjacobs.me/en/donate/
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.1
+Stable tag: 0.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -36,7 +36,7 @@ This plugin uses a per coupon based setting, so you'll have to make a coupon and
 
 == Changelog ==
 
-= x.x - xx/xx/xxxx =
+= 0.1.1 - 28/04/2013 =
  * Fix: Typo in coupon level settings label
 
 = 0.1 - 24/04/2013 =
