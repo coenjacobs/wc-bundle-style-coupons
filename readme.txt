@@ -36,5 +36,8 @@ This plugin uses a per coupon based setting, so you'll have to make a coupon and
 
 == Changelog ==
 
+= x.x - xx/xx/xxxx =
+ * Fix: Typo in coupon level settings label
+
 = 0.1 - 24/04/2013 =
  * Initial release
