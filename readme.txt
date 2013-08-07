@@ -1,9 +1,9 @@
 === WooCommerce Bundle Style Coupons ===
 Contributors: CoenJacobs
 Tags: woocommerce
-Donate link: http://coenjacobs.me/en/donate/
+Donate link: http://coenjacobs.me/donate/
 Requires at least: 3.5
-Tested up to: 3.5
+Tested up to: 3.6
 Stable tag: 0.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -12,7 +12,9 @@ Enables store owners to make a coupon only apply when all products required for 
 
 == Description ==
 
-Enables store owners to make a coupon only apply when all products required for it are in the cart. When you want to run a bundle deal, for three products, all those three products need to be in the cart before the coupon works.
+This is a fairly simple plugin that enables store owners to make a coupon only apply when all products required for it are in the cart. This plugin introduces a new checkbox when editing a coupon, that enables this new feature.
+
+When you want to run a bundle deal, for three products, all those three products need to be in the cart before the coupon works. For example if you want to offer a 50% coupon for purchases of product x, product y and product z in a single order. Just a single checkbox enforces this new rule.
 
 Contributions are welcome via the [GitHub repository](https://github.com/coenjacobs/wc-bundle-style-coupons).
 
