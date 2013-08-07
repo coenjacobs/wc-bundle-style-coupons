@@ -36,6 +36,9 @@ This plugin uses a per coupon based setting, so you'll have to make a coupon and
 
 == Changelog ==
 
+= 0.2 - xx/xx/xxxx =
+ * Tweak: Moved class to separate file
+
 = 0.1.1 - 28/04/2013 =
  * Fix: Typo in coupon level settings label
 
