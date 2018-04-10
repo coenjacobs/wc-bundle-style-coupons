@@ -50,12 +50,11 @@ class WC_Bundle_Style_Coupons {
 	}
 
 	public function coupon_is_valid( $valid, $coupon ) {
-		global $woocommerce;
 
-		$product_ids = $coupon->product_ids;
+		$product_ids = $coupon->get_product_ids();
 
-		if ( 'yes' == get_post_meta( $coupon->id, $this->setting_key, true ) ) {
-			foreach ( $woocommerce->cart->cart_contents as $key => $value ) {
+		if ( 'yes' == get_post_meta( $coupon->get_id(), $this->setting_key, true ) ) {
+			foreach ( wc()->cart->cart_contents as $key => $value ) {
 				if ( in_array( $value['product_id'], $product_ids ) ) {
 					$id_array_key = array_search( $value['product_id'], $product_ids );
 					unset( $product_ids[ $id_array_key ] );
