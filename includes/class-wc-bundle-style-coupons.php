@@ -1,11 +1,33 @@
 <?php
 
 class WC_Bundle_Style_Coupons {
+
+	/**
+	 * The single instance of the class.
+	 * 
+	 * @var obj The WC_Bundle_Style_Coupons object
+	 */
+	protected static $_instance = null;
+
 	private $setting_key = 'wc_bundle_style_coupon';
 
+	/**
+	 * Main WC_Bundle_Style_Coupons instance.
+	 *
+	 * Ensures only one instance of WC_Bundle_Style_Coupons is loaded or can be loaded.
+	 *
+	 * @return WC_Bundle_Style_Coupons Single instance.
+	 */
+	public static function get_instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
+
 	public function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain_files' ), 10, 0 );
-		add_action( 'woocommerce_coupon_options', array( $this, 'coupon_options' ), 10, 0 );
+		add_action( 'init', array( $this, 'load_textdomain_files' ), 10, 0 );
+		add_action( 'woocommerce_coupon_options_usage_restriction', array( $this, 'coupon_options' ), 10, 0 );
 		add_action( 'woocommerce_process_shop_coupon_meta', array( $this, 'process_shop_coupon_meta' ), 10, 2 );
 		add_filter( 'woocommerce_coupon_is_valid', array( $this, 'coupon_is_valid' ), 10, 2 );
 	}
@@ -28,12 +50,11 @@ class WC_Bundle_Style_Coupons {
 	}
 
 	public function coupon_is_valid( $valid, $coupon ) {
-		global $woocommerce;
 
-		$product_ids = $coupon->product_ids;
+		$product_ids = $coupon->get_product_ids();
 
-		if ( 'yes' == get_post_meta( $coupon->id, $this->setting_key, true ) ) {
-			foreach ( $woocommerce->cart->cart_contents as $key => $value ) {
+		if ( 'yes' == get_post_meta( $coupon->get_id(), $this->setting_key, true ) ) {
+			foreach ( wc()->cart->cart_contents as $key => $value ) {
 				if ( in_array( $value['product_id'], $product_ids ) ) {
 					$id_array_key = array_search( $value['product_id'], $product_ids );
 					unset( $product_ids[ $id_array_key ] );
