@@ -3,8 +3,8 @@ Contributors: CoenJacobs
 Tags: woocommerce
 Donate link: http://coenjacobs.me/donate/
 Requires at least: 3.5
-Tested up to: 3.6
 Stable tag: 0.1.1
+Tested up to: 4.9.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -30,7 +30,7 @@ Or use the automatic installation wizard through your admin panel, just search f
 
 = Where can I find the setting for this plugin? =
 
-This plugin uses a per coupon based setting, so you'll have to make a coupon and look for the checkbox at the bottom that says 'Bundle coupon'
+This plugin uses a per coupon based setting, so you'll have to make a coupon and look for the checkbox at the bottom of the Usage Restriction tab that says 'Bundle coupon'
 
 == Screenshots ==
 
@@ -39,7 +39,10 @@ This plugin uses a per coupon based setting, so you'll have to make a coupon and
 == Changelog ==
 
 = 0.2 - xx/xx/xxxx =
+ * Fix: WooCommerce 3.0 compatible
  * Tweak: Moved class to separate file
+ * Tweak: Only load plugin if WooCommerce is active
+ * Tweak: Display checkbox on "Usage Restrictions" tab of Coupon metabox
 
 = 0.1.1 - 28/04/2013 =
  * Fix: Typo in coupon level settings label
