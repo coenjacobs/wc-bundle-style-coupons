@@ -26,8 +26,8 @@ class WC_Bundle_Style_Coupons {
 	}
 
 	public function __construct() {
-		add_action( 'woocommerce_coupon_options', array( $this, 'coupon_options' ), 10, 0 );
 		add_action( 'init', array( $this, 'load_textdomain_files' ), 10, 0 );
+		add_action( 'woocommerce_coupon_options_usage_restriction', array( $this, 'coupon_options' ), 10, 0 );
 		add_action( 'woocommerce_process_shop_coupon_meta', array( $this, 'process_shop_coupon_meta' ), 10, 2 );
 		add_filter( 'woocommerce_coupon_is_valid', array( $this, 'coupon_is_valid' ), 10, 2 );
 	}
