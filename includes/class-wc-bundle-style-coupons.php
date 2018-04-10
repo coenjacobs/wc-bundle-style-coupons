@@ -1,7 +1,29 @@
 <?php
 
 class WC_Bundle_Style_Coupons {
+
+	/**
+	 * The single instance of the class.
+	 * 
+	 * @var obj The WC_Bundle_Style_Coupons object
+	 */
+	protected static $_instance = null;
+
 	private $setting_key = 'wc_bundle_style_coupon';
+
+	/**
+	 * Main WC_Bundle_Style_Coupons instance.
+	 *
+	 * Ensures only one instance of WC_Bundle_Style_Coupons is loaded or can be loaded.
+	 *
+	 * @return WC_Bundle_Style_Coupons Single instance.
+	 */
+	public static function get_instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
 
 	public function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain_files' ), 10, 0 );
