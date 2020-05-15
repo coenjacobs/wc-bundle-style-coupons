@@ -28,7 +28,7 @@ class WC_Bundle_Style_Coupons {
 	public function __construct() {
 		add_action( 'init', array( $this, 'load_textdomain_files' ), 10, 0 );
 		add_action( 'woocommerce_coupon_options_usage_restriction', array( $this, 'coupon_options' ), 10, 0 );
-		add_action( 'woocommerce_process_shop_coupon_meta', array( $this, 'process_shop_coupon_meta' ), 10, 2 );
+		add_action( 'woocommerce_coupon_options_save', array( $this, 'process_shop_coupon_meta' ), 10, 2 );
 		add_filter( 'woocommerce_coupon_is_valid', array( $this, 'coupon_is_valid' ), 10, 2 );
 	}
 
@@ -44,9 +44,17 @@ class WC_Bundle_Style_Coupons {
 		) );
 	}
 
-	public function process_shop_coupon_meta( $post_id, $post ) {
+	/**
+	 * Save the new coupon metabox field data
+	 *
+	 * @param integer $post_id
+	 * @param object WC_Coupon $coupon
+	 * @return void
+	 */
+	public function process_shop_coupon_meta( $post_id, $coupon ) {
 		$coupon_bundle = isset( $_POST[ $this->setting_key ] ) ? 'yes' : 'no';
-		update_post_meta( $post_id,  $this->setting_key, $coupon_bundle );
+		$coupon->update_meta_data( $this->setting_key, $coupon_bundle );
+		$coupon->save_meta_data();
 	}
 
 	public function coupon_is_valid( $valid, $coupon ) {
