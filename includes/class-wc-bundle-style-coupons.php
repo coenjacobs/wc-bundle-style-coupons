@@ -71,7 +71,7 @@ class WC_Bundle_Style_Coupons {
 
 		$product_ids = $coupon->get_product_ids();
 
-		if ( 'yes' == get_post_meta( $coupon->get_id(), $this->setting_key, true ) ) {
+		if ( 'yes' == $coupon->get_meta( $this->setting_key, true ) ) {
 			foreach ( wc()->cart->cart_contents as $key => $value ) {
 				if ( in_array( $value['product_id'], $product_ids ) ) {
 					$id_array_key = array_search( $value['product_id'], $product_ids );
