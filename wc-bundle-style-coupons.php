@@ -5,7 +5,7 @@
  * Description: Only apply a coupon when all products that this coupon applies to are in cart.
  * Author: Coen Jacobs
  * Author URI: http://coenjacobs.me
- * Version: 0.2
+ * Version: 0.3
  * Tested up to: 5.4.0
  * WC requires at least: 3.9.0
  * WC tested up to: 4.1.0
