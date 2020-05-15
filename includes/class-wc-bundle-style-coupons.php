@@ -36,6 +36,9 @@ class WC_Bundle_Style_Coupons {
 		load_plugin_textdomain( 'wc_bundle_style_coupons', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
+	/**
+	 * Output the new Coupon metabox field
+	 */
 	public function coupon_options() {
 		woocommerce_wp_checkbox( array(
 			'id'          => $this->setting_key,
@@ -57,6 +60,13 @@ class WC_Bundle_Style_Coupons {
 		$coupon->save_meta_data();
 	}
 
+	/**
+	 * Validate the coupon against the contents of the cart
+	 *
+	 * @param bool $valid
+	 * @param object WC_Coupon $coupon
+	 * @return bool
+	 */
 	public function coupon_is_valid( $valid, $coupon ) {
 
 		$product_ids = $coupon->get_product_ids();
