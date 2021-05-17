@@ -4,7 +4,7 @@ Tags: woocommerce
 Donate link: http://coenjacobs.me/donate/
 Requires at least: 3.5
 Stable tag: 0.3
-Tested up to: 5.4.0
+Tested up to: 5.7.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -38,7 +38,12 @@ This plugin uses a per coupon based setting, so you'll have to make a coupon and
 
 == Changelog ==
 
-= 0.2 - xx/xx/xxxx =
+= 0.3 - 05/17/2021 =
+ * Update: Use WooCommerce CRUD to get/set coupon meta.
+ * Update: Tested against WooCommerce 5.3
+ * Update: Tested against WordPress 5.7.
+
+= 0.2 - 04/30/2018 =
  * Fix: WooCommerce 3.0 compatible
  * Tweak: Moved class to separate file
  * Tweak: Only load plugin if WooCommerce is active

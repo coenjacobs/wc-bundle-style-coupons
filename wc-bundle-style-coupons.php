@@ -6,9 +6,9 @@
  * Author: Coen Jacobs
  * Author URI: http://coenjacobs.me
  * Version: 0.3
- * Tested up to: 5.4.0
+ * Tested up to: 5.7.2
  * WC requires at least: 3.9.0
- * WC tested up to: 4.1.0
+ * WC tested up to: 5.3.0
  */
 
 include( 'includes/class-wc-bundle-style-coupons.php' );
