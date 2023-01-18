@@ -1,7 +1,6 @@
 === WooCommerce Bundle Style Coupons ===
 Contributors: CoenJacobs
 Tags: woocommerce
-Donate link: http://coenjacobs.me/donate/
 Requires at least: 3.5
 Stable tag: 0.3
 Tested up to: 6.1.1

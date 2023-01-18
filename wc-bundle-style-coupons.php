@@ -4,7 +4,7 @@
  * Plugin Name: WooCommerce Bundle Style Coupons
  * Description: Only apply a coupon when all products that this coupon applies to are in cart.
  * Author: Coen Jacobs
- * Author URI: http://coenjacobs.me
+ * Author URI: https://coenjacobs.com
  * Version: 0.3
  * Tested up to: 6.1.1
  * WC requires at least: 3.9.0
