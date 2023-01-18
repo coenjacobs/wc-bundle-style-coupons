@@ -38,19 +38,19 @@ This plugin uses a per coupon based setting, so you'll have to make a coupon and
 
 == Changelog ==
 
-= 0.3 - 01/12/2003 =
+= 0.3 - 2023/01/18 =
  * Update: Use WooCommerce CRUD to get/set coupon meta.
  * Update: Tested against WooCommerce 7.4.
  * Update: Tested against WordPress 6.1.
 
-= 0.2 - 04/30/2018 =
+= 0.2 - 2018/04/30 =
  * Fix: WooCommerce 3.0 compatible
  * Tweak: Moved class to separate file
  * Tweak: Only load plugin if WooCommerce is active
  * Tweak: Display checkbox on "Usage Restrictions" tab of Coupon metabox
 
-= 0.1.1 - 28/04/2013 =
+= 0.1.1 - 2013/04/28 =
  * Fix: Typo in coupon level settings label
 
-= 0.1 - 24/04/2013 =
+= 0.1 - 2013/04/24 =
  * Initial release
