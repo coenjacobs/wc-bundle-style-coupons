@@ -28,7 +28,7 @@ class WC_Bundle_Style_Coupons {
 	public function __construct() {
 		add_action( 'init', array( $this, 'load_textdomain_files' ), 10, 0 );
 		add_action( 'woocommerce_coupon_options_usage_restriction', array( $this, 'coupon_options' ), 10, 0 );
-		add_action( 'woocommerce_process_shop_coupon_meta', array( $this, 'process_shop_coupon_meta' ), 10, 2 );
+		add_action( 'woocommerce_coupon_options_save', array( $this, 'process_shop_coupon_meta' ), 10, 2 );
 		add_filter( 'woocommerce_coupon_is_valid', array( $this, 'coupon_is_valid' ), 10, 2 );
 	}
 
@@ -36,6 +36,9 @@ class WC_Bundle_Style_Coupons {
 		load_plugin_textdomain( 'wc_bundle_style_coupons', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
+	/**
+	 * Output the new Coupon metabox field
+	 */
 	public function coupon_options() {
 		woocommerce_wp_checkbox( array(
 			'id'          => $this->setting_key,
@@ -44,16 +47,31 @@ class WC_Bundle_Style_Coupons {
 		) );
 	}
 
-	public function process_shop_coupon_meta( $post_id, $post ) {
+	/**
+	 * Save the new coupon metabox field data
+	 *
+	 * @param integer $post_id
+	 * @param object WC_Coupon $coupon
+	 * @return void
+	 */
+	public function process_shop_coupon_meta( $post_id, $coupon ) {
 		$coupon_bundle = isset( $_POST[ $this->setting_key ] ) ? 'yes' : 'no';
-		update_post_meta( $post_id,  $this->setting_key, $coupon_bundle );
+		$coupon->update_meta_data( $this->setting_key, $coupon_bundle );
+		$coupon->save_meta_data();
 	}
 
+	/**
+	 * Validate the coupon against the contents of the cart
+	 *
+	 * @param bool $valid
+	 * @param object WC_Coupon $coupon
+	 * @return bool
+	 */
 	public function coupon_is_valid( $valid, $coupon ) {
 
 		$product_ids = $coupon->get_product_ids();
 
-		if ( 'yes' == get_post_meta( $coupon->get_id(), $this->setting_key, true ) ) {
+		if ( 'yes' == $coupon->get_meta( $this->setting_key, true ) ) {
 			foreach ( wc()->cart->cart_contents as $key => $value ) {
 				if ( in_array( $value['product_id'], $product_ids ) ) {
 					$id_array_key = array_search( $value['product_id'], $product_ids );

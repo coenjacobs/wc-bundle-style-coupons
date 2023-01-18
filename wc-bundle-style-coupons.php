@@ -1,12 +1,15 @@
 <?php
 
-/*
-Plugin Name: WooCommerce Bundle Style Coupons
-Description: Only apply a coupon when all products that this coupon applies to are in cart.
-Author: Coen Jacobs
-Author URI: http://coenjacobs.me
-Version: 0.2
-*/
+/**
+ * Plugin Name: WooCommerce Bundle Style Coupons
+ * Description: Only apply a coupon when all products that this coupon applies to are in cart.
+ * Author: Coen Jacobs
+ * Author URI: http://coenjacobs.me
+ * Version: 0.3
+ * Tested up to: 6.1.1
+ * WC requires at least: 3.9.0
+ * WC tested up to: 7.4.0
+ */
 
 include( 'includes/class-wc-bundle-style-coupons.php' );
 
